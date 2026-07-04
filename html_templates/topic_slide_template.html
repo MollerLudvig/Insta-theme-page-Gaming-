@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+  }
+
+  .slide {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #0d1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .background {
+    position: absolute;
+    inset: 0;
+    background-image: url(__IMAGE_URL__);
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    transform: scale(1.05); /* prevents blur from leaving white edges */
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.40); /* darkens the blurred image so text is readable */
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .label {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px black, 0 0 40px black, 2px 2px 4px black, -2px -2px 4px black;
+  }
+
+  .topic {
+    font-size: 88px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 
+        0 0 20px black,
+        0 0 40px black,
+        0 0 80px black,
+        2px 2px 4px black,
+        -2px -2px 4px black,
+        2px -2px 4px black,
+        -2px 2px 4px black;
+  }
+
+  .swipe-hint {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px black, 0 0 20px black, 0 0 40px black, 2px 2px 4px black, -2px -2px 4px black;
+    white-space: nowrap;
+  }
+
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="label">Gaming</div>
+      <div class="topic">__TOPIC__</div>
+    </div>
+    <div class="swipe-hint">swipe to see the list →</div>
+  </div>
+</body>
+</html>

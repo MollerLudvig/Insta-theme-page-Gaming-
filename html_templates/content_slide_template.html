@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #111;
+    }
+
+  .slide {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .background {
+    position: absolute;
+    inset: 0;
+    background-image: url(__IMAGE_URL__);
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.05); /* prevents blur from leaving white edges */
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* darkens the blurred image so text is readable */
+  }
+
+  .content {
+    position: relative; /* sits above background and overlay */
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 60px;
+  }
+
+  .rank {
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, __RANK_HIGHLIGHT__, __RANK_COLOR__ 50%, __RANK_SHADOW__);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 8px __RANK_GLOW__) drop-shadow(0 0 16px rgba(0,0,0,1)) drop-shadow(0 0 32px rgba(0,0,0,1));
+
+}
+
+.game-title {
+    font-size: 82px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    text-align: center;
+    text-shadow: 
+        0 0 20px black,
+        0 0 40px black,
+        0 0 80px black,
+        2px 2px 4px black,
+        -2px -2px 4px black,
+        2px -2px 4px black,
+        -2px 2px 4px black;
+}
+
+.description {
+    font-size: 46px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 80px;
+    text-shadow: 
+        0 0 10px black,
+        0 0 20px black,
+        0 0 40px black,
+        0 0 60px black,
+        2px 2px 4px black,
+        -2px -2px 4px black,
+        2px -2px 4px black,
+        -2px 2px 4px black;
+}
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="rank">#__RANK__</div>
+      <div class="game-title">__GAME_TITLE__</div>
+      <div class="description">__DESCRIPTION__</div>
+    </div>
+  </div>
+</body>
+</html>
