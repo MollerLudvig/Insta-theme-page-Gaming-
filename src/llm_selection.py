@@ -2,7 +2,7 @@ import requests
 import json
 
 from models import GameItem, Post
-from prompts import TOPIC_SYSTEM_PROMPT, RANKING_SYSTEM_PROMPT, DESCRIPTION_SYSTEM_PROMPT
+from prompts import TOPIC_SYSTEM_PROMPT, RANKING_SYSTEM_PROMPT, DESCRIPTION_SYSTEM_PROMPT, HOOK_SYSTEM_PROMPT
 
 
 def raw_to_JSON(raw_output: str) -> dict:
@@ -41,6 +41,14 @@ def llm_generate_topic() -> str:
     return prompt_model(data_str, TOPIC_SYSTEM_PROMPT)
 
 
+def build_hook_prompt(topic: str) -> str:
+    return f"Topic: {topic}\n\nWrite a hook for this carousel post."
+
+def llm_generate_hook(topic) ->str:
+    data_str = build_hook_prompt(topic)
+    return prompt_model(data_str, HOOK_SYSTEM_PROMPT)
+
+
 def build_ranking_prompt(topic: str, existing_games: list, num_missing: int) -> str:
     with open("previous_ideas.json", "r") as file:
         previous_posts = json.load(file)
@@ -54,7 +62,7 @@ def build_ranking_prompt(topic: str, existing_games: list, num_missing: int) -> 
     previous_str = json.dumps(previous_posts, indent=2) if previous_posts else "None yet."
     
     return f"""Topic: {topic}
-Number of games to generate: {num_missing}
+"You MUST generate exactly {num_missing} games, no more, no less"
 Games already placed:
 {existing_str}
 
@@ -68,6 +76,13 @@ def llm_generate_ranking(topic: str, existing_games: list, num_missing: int) -> 
 
     raw_output = prompt_model(data_str, RANKING_SYSTEM_PROMPT)
     return raw_to_JSON(raw_output)
+
+    # # Retry logic if the LLM generates an unfinished list. 
+    # # Should be solved with better prompting but just in case it is needed
+    # if len(result) < num_missing:
+    #         print(f"LLM only generated {len(result)} games, expected {num_missing}. Retrying...")
+    #         raw_output = prompt_model(data_str, RANKING_SYSTEM_PROMPT)
+    #         result = raw_to_JSON(raw_output)
 
 
 def build_description_prompt(game_name: str, topic: str) -> str:

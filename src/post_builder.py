@@ -1,8 +1,10 @@
 import json
 import os
+import random
 
 from models import Post, GameItem
-from llm_selection import llm_generate_topic, llm_generate_ranking, llm_generate_description
+from llm_selection import llm_generate_topic, llm_generate_ranking, llm_generate_description, llm_generate_hook
+from hooks import HOOKS
 
 def create_post_object(data: dict) -> Post:
     items = [
@@ -18,6 +20,7 @@ def create_post_object(data: dict) -> Post:
     items.sort(key=lambda x: x.rank, reverse=True) # In case the LLM gives rankings in wrong order for some reason.
     return Post(
         topic=data["topic"],
+        hook=data["hook"],
         caption="",  # generated separately or written manually later
         items=items
     )
@@ -29,6 +32,15 @@ def build_post(num_rankings: int = 5) -> Post:
 
     if not post_json.get("topic"):
         post_json["topic"] = llm_generate_topic()
+
+    # Use from a pool of pre-made hooks
+    if not post_json.get("hook"):
+        post_json["hook"] = random.choice(HOOKS)
+
+    # LLM generates hook
+    # if not post_json.get("hook"):
+    #     post_json["hook"] = llm_generate_hook(post_json["topic"])
+    #     print(post_json["hook"])
 
     existing_games = [item for item in post_json["items"] if item.get("name")]
 

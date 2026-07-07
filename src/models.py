@@ -12,5 +12,6 @@ class GameItem():
 @dataclass
 class Post():
     topic: str
+    hook: str
     caption: str
     items: list[GameItem]

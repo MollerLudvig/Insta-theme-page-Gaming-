@@ -1,6 +1,7 @@
 import asyncio
 from playwright.async_api import async_playwright
 import json
+import random
 
 from models import Post
 
@@ -39,17 +40,18 @@ def render_content_slide_html(image_url, rank, game_title, description):
     return html
 
 
-def render_topic_slide_html(topic, image_url):
+def render_topic_slide_html(topic, hook, image_url):
     with open("html_templates/topic_slide_template.html", encoding="utf-8") as f:
         html = f.read()
     html = html.replace("__TOPIC__", topic)
+    html = html.replace("__HOOK__", hook)
     html = html.replace("__IMAGE_URL__", image_url)
     return html
 
 
 def render_slide_images(post: Post, output_path):
 
-    topic_html = render_topic_slide_html(post.topic, post.items[0].image_url)
+    topic_html = render_topic_slide_html(post.topic, post.hook, random.choice(post.items).image_url)
     asyncio.run(screenshot_card(topic_html, f"{output_path}/slide_0.png"))
     print(f"Rendered topic slide for {post.topic} to {output_path}")
 
