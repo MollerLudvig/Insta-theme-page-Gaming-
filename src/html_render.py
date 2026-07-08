@@ -51,6 +51,7 @@ def render_topic_slide_html(topic, hook, image_url):
 
 def render_slide_images(post: Post, output_path):
 
+    # Choose random background out of the rankings for topic slide
     topic_html = render_topic_slide_html(post.topic, post.hook, random.choice(post.items).image_url)
     asyncio.run(screenshot_card(topic_html, f"{output_path}/slide_0.png"))
     print(f"Rendered topic slide for {post.topic} to {output_path}")

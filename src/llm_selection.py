@@ -85,16 +85,14 @@ def llm_generate_ranking(topic: str, existing_games: list, num_missing: int) -> 
     #         result = raw_to_JSON(raw_output)
 
 
-def build_description_prompt(game_name: str, topic: str) -> str:
-        return f"Game: {game_name}\nTopic: {topic}\n\nWrite a description for why this game belongs on this list."
+def build_description_prompt(topic: str, items: list) -> str:
+    games_str = "\n".join([f"Rank {item['rank']}: {item['name']}" for item in items])
+    return f"Topic: {topic}\n\nGames to describe (worst to best):\n{games_str}\n\nWrite a description for each game."
 
-
-def llm_generate_description(game_name: str, topic: str) -> str:
-    data_str = build_description_prompt(game_name, topic)
-
+def llm_generate_description(topic: str, items: list) -> list:
+    data_str = build_description_prompt(topic, items)
     raw_output = prompt_model(data_str, DESCRIPTION_SYSTEM_PROMPT)
-    return raw_output
-
+    return raw_to_JSON(raw_output)
 
 
 if __name__ == "__main__":  

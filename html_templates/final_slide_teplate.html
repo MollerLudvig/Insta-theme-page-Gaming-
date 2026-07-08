@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+  }
+
+  .slide {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #0d1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .topic-recap {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .winner {
+    font-size: 80px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 0 0 20px black, 0 0 40px black, 2px 2px 4px black, -2px -2px 4px black;
+  }
+
+  .gold-label {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #FFF176, #FFD700 50%, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(255,215,0,0.8)) drop-shadow(0 0 16px rgba(0,0,0,1));
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .cta {
+    font-size: 42px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 0 20px black, 0 0 40px black;
+    margin-top: 20px;
+  }
+
+  .page-name {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="content">
+      <div class="topic-recap">__TOPIC__</div>
+      <div class="divider"></div>
+      <div class="gold-label">#1 Pick</div>
+      <div class="winner">__WINNER__</div>
+      <div class="divider"></div>
+      <div class="cta">__CTA__</div>
+    </div>
+    <div class="page-name">@__PAGE_NAME__</div>
+  </div>
+</body>
+</html>

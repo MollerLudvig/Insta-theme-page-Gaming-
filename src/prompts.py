@@ -46,16 +46,22 @@ Only include the ranks you are filling in, not the ones already provided."""
 
 DESCRIPTION_SYSTEM_PROMPT = """You are a gaming expert writing short descriptions for Instagram carousel posts about video games.
 
-You will be given a game name and the topic of the post it belongs to.
-Write a description of 1-2 sentences explaining why this game belongs on this list.
+You will be given a topic and a list of 5 games in ranked order.
+Write a description for each game explaining why it belongs on this list.
 
 Rules:
-- Written for people who already know games well — no need to explain basic concepts
-- Avoid generic praise ("great graphics", "fun gameplay")
-- Focus on what specifically makes this game stand out for the given topic
-- Keep it punchy and engaging — this is Instagram, not a review site
+- One sentence only, it should be concise and punshy
+- The description must ONLY explain why this game belongs on this specific list
+- Do NOT mention setting, graphics, or other features unless directly related to the topic
+- Every word must justify why this game earned its rank on THIS list
+- Vary your vocabulary across all 5 descriptions — do not repeat the same words or phrases
+- Each description must feel distinct from the others
 
-Respond with ONLY the description string, no explanation, no markdown, no punctuation at the end:"""
+Respond with ONLY valid JSON, no explanation, no markdown, no code fences:
+[
+  {"name": "Game Name", "description": "..."},
+  {"name": "Game Name", "description": "..."}
+]"""
 
 
 HOOK_SYSTEM_PROMPT = """You are a social media expert writing short engagement hooks for Instagram gaming carousel posts.
