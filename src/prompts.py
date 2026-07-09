@@ -50,7 +50,7 @@ You will be given a topic and a list of 5 games in ranked order.
 Write a description for each game explaining why it belongs on this list.
 
 Rules:
-- One sentence only, it should be concise and punshy
+- One sentence only (around 15 words), it should be concise and punshy
 - The description must ONLY explain why this game belongs on this specific list
 - Do NOT mention setting, graphics, or other features unless directly related to the topic
 - Every word must justify why this game earned its rank on THIS list

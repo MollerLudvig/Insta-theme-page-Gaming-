@@ -21,6 +21,7 @@ def create_post_object(data: dict) -> Post:
     return Post(
         topic=data["topic"],
         hook=data["hook"],
+        cta=data["cta"],
         caption="",  # generated separately or written manually later
         items=items
     )
@@ -36,6 +37,9 @@ def build_post(num_rankings: int = 5) -> Post:
     # Use from a pool of pre-made hooks
     if not post_json.get("hook"):
         post_json["hook"] = random.choice(HOOKS)
+
+    if not post_json.get("cta"):
+        post_json["cta"] = "cta" #random.choice(CTAS)
 
     # LLM generates hook
     # if not post_json.get("hook"):

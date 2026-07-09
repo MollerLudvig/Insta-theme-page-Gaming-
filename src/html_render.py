@@ -48,6 +48,13 @@ def render_topic_slide_html(topic, hook, image_url):
     html = html.replace("__IMAGE_URL__", image_url)
     return html
 
+def render_last_slide_html(topic, cta, winner):
+    with open("html_templates/final_slide_template.html", encoding="utf-8") as f:
+        html = f.read()
+    html = html.replace("__TOPIC__", topic)
+    html = html.replace("__CTA__", cta)
+    html = html.replace("__WINNER__", winner)
+    return html
 
 def render_slide_images(post: Post, output_path):
 
@@ -66,4 +73,8 @@ def render_slide_images(post: Post, output_path):
         
         asyncio.run(screenshot_card(html_content, f"{output_path}/slide_{i+1}.png"))
         print(f"Rendered slide {i+1} for {item.name} to {output_path}")
+
+    # Rankings in post object already sorted so [-1] will give the winner
+    last_slide_html = render_last_slide_html(post.topic, post.cta, post.items[-1].name)
+    asyncio.run(screenshot_card(last_slide_html, f"{output_path}/slide_final.png"))
 

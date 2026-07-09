@@ -16,12 +16,11 @@ def main():
     post = fetch_post_images(post, token)
     render_slide_images(post, "slide_images")
 
-    response = input("Post this idea or not?: ")
 
+    response = input("Post this idea or not?: ")
     if response.lower() == "yes":
         update_previous_ideas(post.topic, post.hook, post.items)
         clear_content_file()
-
 
 
 

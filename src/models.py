@@ -13,5 +13,6 @@ class GameItem():
 class Post():
     topic: str
     hook: str
+    cta: str
     caption: str
     items: list[GameItem]
