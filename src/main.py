@@ -12,6 +12,8 @@ def main():
 
     post = build_post(num_rankings)
 
+    print(post.caption)
+
     token = get_igdb_token(client_id, client_secret)
     post = fetch_post_images(post, token)
     render_slide_images(post, "slide_images")

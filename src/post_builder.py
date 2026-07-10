@@ -3,8 +3,8 @@ import os
 import random
 
 from models import Post, GameItem
-from llm_selection import llm_generate_topic, llm_generate_ranking, llm_generate_description, llm_generate_hook
-from hooks import HOOKS
+from llm_selection import llm_generate_topic, llm_generate_ranking, llm_generate_description, llm_generate_hook, llm_generate_caption
+from engagement_phrases import HOOKS, CTAS
 
 def create_post_object(data: dict) -> Post:
     items = [
@@ -22,9 +22,16 @@ def create_post_object(data: dict) -> Post:
         topic=data["topic"],
         hook=data["hook"],
         cta=data["cta"],
-        caption="",  # generated separately or written manually later
+        caption=data["caption"],
+        page_name=os.getenv("INSTAGRAM_USERNAME"),
         items=items
     )
+
+
+HASHTAGS = "#gaming #gamer #top5games #gamingcommunity #pcgaming #ps5gaming #xbox #nintendo #gamerecommendations"
+
+def build_full_caption(topic: str, llm_caption: str, cta: str) -> str:
+    return f"MY {topic} 🎮\n\n{llm_caption}\n\n{cta} 👇\n\n{HASHTAGS}"
 
 
 def build_post(num_rankings: int = 5) -> Post:
@@ -39,7 +46,11 @@ def build_post(num_rankings: int = 5) -> Post:
         post_json["hook"] = random.choice(HOOKS)
 
     if not post_json.get("cta"):
-        post_json["cta"] = "cta" #random.choice(CTAS)
+        post_json["cta"] = random.choice(CTAS)
+
+    if not post_json.get("caption"):
+        post_json["caption"] = llm_generate_caption(post_json["topic"], post_json["items"])
+
 
     # LLM generates hook
     # if not post_json.get("hook"):
@@ -60,6 +71,8 @@ def build_post(num_rankings: int = 5) -> Post:
         matching = next((d for d in descriptions if d["name"] == item["name"]), None)
         if matching:
             item["description"] = matching["description"]
+
+    post_json["caption"] = build_full_caption(post_json["topic"], post_json["caption"], post_json["cta"])
 
     return create_post_object(post_json)
 

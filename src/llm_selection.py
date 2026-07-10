@@ -2,7 +2,7 @@ import requests
 import json
 
 from models import GameItem, Post
-from prompts import TOPIC_SYSTEM_PROMPT, RANKING_SYSTEM_PROMPT, DESCRIPTION_SYSTEM_PROMPT, HOOK_SYSTEM_PROMPT
+from prompts import TOPIC_SYSTEM_PROMPT, RANKING_SYSTEM_PROMPT, DESCRIPTION_SYSTEM_PROMPT, CAPTION_SYSTEM_PROMPT, HOOK_SYSTEM_PROMPT
 
 
 def raw_to_JSON(raw_output: str) -> dict:
@@ -93,6 +93,16 @@ def llm_generate_description(topic: str, items: list) -> list:
     data_str = build_description_prompt(topic, items)
     raw_output = prompt_model(data_str, DESCRIPTION_SYSTEM_PROMPT)
     return raw_to_JSON(raw_output)
+
+def build_caption_prompt(topic: str, items: list) -> str:
+    games_str = "\n".join([f"#{item['rank']}: {item['name']}" for item in items])
+    return f"Topic: {topic}\n\nGames in the post:\n{games_str}\n\nWrite the caption lines."
+
+def llm_generate_caption(topic: str, items: list) -> str:
+    data_str = build_caption_prompt(topic, items)
+    raw_output = prompt_model(data_str, CAPTION_SYSTEM_PROMPT)
+    result = raw_to_JSON(raw_output)
+    return f"{result['criteria']}\n\n{result['flavor']}"
 
 
 if __name__ == "__main__":  

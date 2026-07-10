@@ -3,6 +3,7 @@ import json
 EMPTY_CONTENT = {
   "topic": "",
   "hook": "",
+  "cta": "",
   "items": [
     {"rank": 5, "name": "", "description": ""},
     {"rank": 4, "name": "", "description": ""},

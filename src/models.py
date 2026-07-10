@@ -15,4 +15,5 @@ class Post():
     hook: str
     cta: str
     caption: str
+    page_name: str
     items: list[GameItem]
