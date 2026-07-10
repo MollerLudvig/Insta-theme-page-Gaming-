@@ -17,3 +17,16 @@ class Post():
     caption: str
     page_name: str
     items: list[GameItem]
+    
+
+def post_to_dict(post: Post) -> dict:
+    return {
+        "topic": post.topic,
+        "hook": post.hook,
+        "caption": post.caption,  # just the description part
+        "cta": post.cta,
+        "items": [
+            {"rank": item.rank, "name": item.name, "description": item.description}
+            for item in post.items
+        ]
+    }

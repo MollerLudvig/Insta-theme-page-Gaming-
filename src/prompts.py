@@ -74,9 +74,11 @@ Write two short lines for the caption:
 Rules:
 - The criteria line should feel personal and opinionated, not objective ("Ranked by..." or "Based on...")
 - The flavor line should name-drop 2-3 games naturally, not list them all
+- The flavor line must ONLY reference games that appear in the provided list, no others
 - Both lines together should be no more than 40 words total
 - Write for a gaming audience who knows these games — no need to explain what they are
 - No hashtags, no CTA, no emojis — those are added separately
+
 
 Respond with ONLY valid JSON, no explanation, no markdown, no code fences:
 {

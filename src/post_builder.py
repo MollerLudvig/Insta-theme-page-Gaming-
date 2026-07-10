@@ -48,9 +48,6 @@ def build_post(num_rankings: int = 5) -> Post:
     if not post_json.get("cta"):
         post_json["cta"] = random.choice(CTAS)
 
-    if not post_json.get("caption"):
-        post_json["caption"] = llm_generate_caption(post_json["topic"], post_json["items"])
-
 
     # LLM generates hook
     # if not post_json.get("hook"):
@@ -66,11 +63,17 @@ def build_post(num_rankings: int = 5) -> Post:
         post_json["items"] = sorted(all_games, key=lambda x: x["rank"], reverse=True)
 
 
+    # Could generate only for the empty description fieldsWhile still feeding the existing description
+    # Fields for context so the LLM doesn't repeat itself across multiple descriptions
     descriptions = llm_generate_description(post_json["topic"], post_json["items"])
     for item in post_json["items"]:
         matching = next((d for d in descriptions if d["name"] == item["name"]), None)
-        if matching:
+        if matching and not item["description"] :
             item["description"] = matching["description"]
+
+
+    if not post_json.get("caption"):
+        post_json["caption"] = llm_generate_caption(post_json["topic"], post_json["items"])
 
     post_json["caption"] = build_full_caption(post_json["topic"], post_json["caption"], post_json["cta"])
 
