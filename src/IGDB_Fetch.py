@@ -53,19 +53,25 @@ def best_match(game_name:str, results: list) -> dict:
     
     def score(result):
         result_name = result["name"].lower().strip()
-        name_score = 0
-        if result_name == cleaned:
-            name_score = 3  # exact match, best possible
-        if result_name.startswith(cleaned) or cleaned.startswith(result_name):
-            name_score = 2  # one starts with the other e.g. "portal 2" vs "portal 2: ..."
-        if cleaned in result_name or result_name in cleaned:
-            name_score = 1  # partial containment
 
-        # Fallback to rating if names are the same (Higher rated games are more likely to be the right one)
-        rating_count = result.get("rating_count", 0)
-        return (name_score, rating_count) 
+        cleaned_stripped = re.sub(r'[^\w\s]', '', cleaned)
+        result_stripped = re.sub(r'[^\w\s]', '', result_name)
+
+        if result_stripped == cleaned_stripped:
+            return (3, result.get("rating_count", 0) or 0)  # exact match ignoring punctuation
+        if result_stripped.startswith(cleaned_stripped) or cleaned_stripped.startswith(result_stripped):
+            return (2, result.get("rating_count", 0) or 0)
+        if cleaned_stripped in result_stripped or result_stripped in cleaned_stripped:
+            return (1, result.get("rating_count", 0) or 0)
+        return (0, result.get("rating_count", 0) or 0)
+
     
     return max(results, key=score)
+
+def is_base_game(result: dict) -> bool:
+    name = result["name"].lower()
+    edition_keywords = ["deluxe", "complete", "definitive", "goty", "enhanced", "edition", "remastered"]
+    return not any(keyword in name for keyword in edition_keywords)
 
 def fetch_game(game_name: str, token: str) -> GameItem:
     cleaned_name = clean_game_name(game_name)
@@ -82,13 +88,17 @@ def fetch_game(game_name: str, token: str) -> GameItem:
         result = igdb_request(
             IGDB_URL,
             token,
-            f'search "{cleaned_name}"; fields name,genres.name,cover.url,rating, rating_count; limit 10;'
+            f'search "{cleaned_name}"; fields name,genres.name,cover.url,rating,rating_count; limit 10;'
         )
     
     if not result:
         raise ValueError(f"No IGDB results found for: {cleaned_name}")
     
-    game = best_match(cleaned_name, result)
+    filtered = [r for r in result if is_base_game(r)]
+    if not filtered:
+        filtered = result
+    game = best_match(cleaned_name, filtered)
+
     cover_url = get_cover_url(game["cover"]["url"]) if game.get("cover") else ""
     genres = [genre["name"] for genre in game.get("genres", [])]
     
@@ -101,6 +111,6 @@ def fetch_post_images(post: Post, token: str) -> Post:
 
 
 if __name__ == "__main__":
-    game = fetch_game("Portal 2", get_igdb_token(client_id, client_secret))
+    game = fetch_game("the witcher 3: wild hunt", get_igdb_token(client_id, client_secret))
     print(game)
     

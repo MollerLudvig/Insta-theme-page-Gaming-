@@ -28,7 +28,7 @@ def create_post_object(data: dict) -> Post:
     )
 
 
-HASHTAGS = "#gaming #gamer #top5games #gamingcommunity #pcgaming #ps5gaming #xbox #nintendo #gamerecommendations"
+HASHTAGS = "#gaming #gamer #top5games #gamingcommunity #pcgaming #consolegaming #gamerecommendations"
 
 def build_full_caption(topic: str, llm_caption: str, cta: str) -> str:
     return f"MY {topic} 🎮\n\n{llm_caption}\n\n{cta} 👇\n\n{HASHTAGS}"
@@ -67,15 +67,14 @@ def build_post(num_rankings: int = 5) -> Post:
     # Fields for context so the LLM doesn't repeat itself across multiple descriptions
     descriptions = llm_generate_description(post_json["topic"], post_json["items"])
     for item in post_json["items"]:
-        matching = next((d for d in descriptions if d["name"] == item["name"]), None)
+        matching = next((d for d in descriptions if d["name"].lower() == item["name"].lower()), None)
         if matching and not item["description"] :
             item["description"] = matching["description"]
 
 
     if not post_json.get("caption"):
         post_json["caption"] = llm_generate_caption(post_json["topic"], post_json["items"])
-
-    post_json["caption"] = build_full_caption(post_json["topic"], post_json["caption"], post_json["cta"])
+        post_json["caption"] = build_full_caption(post_json["topic"], post_json["caption"], post_json["cta"])
 
     return create_post_object(post_json)
 

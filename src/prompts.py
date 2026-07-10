@@ -78,6 +78,8 @@ Rules:
 - Both lines together should be no more than 40 words total
 - Write for a gaming audience who knows these games — no need to explain what they are
 - No hashtags, no CTA, no emojis — those are added separately
+- Avoid trying to force saying "From X to Y" Below is just an example
+- Make the flavor text sound genuine
 
 
 Respond with ONLY valid JSON, no explanation, no markdown, no code fences:
