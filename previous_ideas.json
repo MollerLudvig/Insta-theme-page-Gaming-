@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Top 5 Games with the Best Crafting Systems",
+    "hook": "Tag someone who'd disagree with #1",
+    "games": [
+      "Fallout: New Vegas",
+      "No Man's Sky",
+      "Don't Starve",
+      "Terraria",
+      "Stardew Valley"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Compelling Female Protagonists",
+    "hook": "You've definitely missed one of these",
+    "games": [
+      "Mass Effect",
+      "Uncharted: Golden Abyss",
+      "Horizon Zero Dawn",
+      "Mirror's Edge Catalyst",
+      "Tomb Raider"
+    ]
+  },
+  {
     "topic": "Top 5 RPGs of All Time",
     "hook": "How many have you actually completed?",
     "games": [

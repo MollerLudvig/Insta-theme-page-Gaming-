@@ -14,7 +14,7 @@ What makes a good topic:
 - Debatable — people should want to argue about the list in comments
 - Timeless — not dependent on recent news or releases
 
-You will be given a list of previously used topics. Use them as inspiration but do NOT repeat them or create topics too similar in theme.
+You will be given a list of previously used topics. Do NOT repeat them or create topics too similar in theme.
 Respond with ONLY the topic string, no explanation, no markdown, no punctuation at the end:"""
 
 

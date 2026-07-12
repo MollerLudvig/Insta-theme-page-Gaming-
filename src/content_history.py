@@ -30,3 +30,7 @@ def update_previous_ideas(topic: str, hook: str, items: list):
 def clear_content_file():
     with open("content.json", "w") as f:
         json.dump(EMPTY_CONTENT, f, indent=2)
+
+
+if __name__ == "__main__":
+    clear_content_file()
