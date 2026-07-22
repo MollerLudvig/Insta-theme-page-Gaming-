@@ -1,5 +1,115 @@
 [
   {
+    "topic": "Top 5 Games with the Most Immersive Storytelling",
+    "hook": "Most people get #1 wrong",
+    "games": [
+      "BioShock",
+      "Red Dead Redemption 2",
+      "The Last Guardian",
+      "Death Stranding",
+      "The Witcher 3: Wild Hunt"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Boss Fights",
+    "hook": "Most people get #1 wrong",
+    "games": [
+      "Resident Evil",
+      "Dark Souls",
+      "Castlevania: Symphony of the Night",
+      "Bloodborne",
+      "Super Metroid"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Engaging Dialogue Systems",
+    "hook": "You've definitely missed one of these",
+    "games": [
+      "Mass Effect 2",
+      "Detroit: Become Human",
+      "The Walking Dead: Season One - Episode 1: A New Day",
+      "The Witcher 3: Wild Hunt",
+      "Baldur's Gate III"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Addictive Collectibles",
+    "hook": "Swipe to see if your #1 made the list",
+    "games": [
+      "Tony Hawk's Pro Skater 3",
+      "Crash Bandicoot N. Sane Trilogy",
+      "Assassin's Creed Syndicate",
+      "Diablo II: Lord of Destruction",
+      "Streets of Rage 4"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Memorable Side Characters",
+    "hook": "Most people get #1 wrong",
+    "games": [
+      "Chrono Trigger",
+      "Final Fantasy VII",
+      "The Legend of Zelda: Ocarina of Time",
+      "Mass Effect 2",
+      "Resident Evil 2"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Multiplayer Modes",
+    "hook": "Swipe to see if your #1 made the list",
+    "games": [
+      "Battlefield 1942",
+      "Destiny 2",
+      "H1Z1",
+      "Tom Clancy's Rainbow Six Siege: North Star",
+      "Team Fortress 2"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Iconic Villains",
+    "hook": "How many have you actually completed?",
+    "games": [
+      "Silent Hill 2",
+      "Resident Evil 3",
+      "StarCraft",
+      "Metal Gear Solid",
+      "God of War"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Unique Monster Designs",
+    "hook": "How many have you actually completed?",
+    "games": [
+      "Condemned: Criminal Origins",
+      "Alien: Isolation",
+      "Bloodborne",
+      "Dead Space",
+      "The Suffering"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Level Design",
+    "hook": "Most people get #1 wrong",
+    "games": [
+      "Tomb Raider",
+      "Super Mario 64",
+      "Ico",
+      "Mirror's Edge",
+      "Portal"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Impactful Story Twists",
+    "hook": "One of these will start an argument",
+    "games": [
+      "Metal Gear Solid",
+      "Portal 2",
+      "The Last of Us",
+      "Heavy Rain",
+      "BioShock"
+    ]
+  },
+  {
     "topic": "Top 5 Games with the Best Crafting Systems",
     "hook": "Tag someone who'd disagree with #1",
     "games": [

@@ -68,7 +68,7 @@ def build_post(num_rankings: int = 5) -> Post:
     descriptions = llm_generate_description(post_json["topic"], post_json["items"])
     for item in post_json["items"]:
         matching = next((d for d in descriptions if d["name"].lower() == item["name"].lower()), None)
-        if matching and not item["description"] :
+        if matching and not item["description"]:
             item["description"] = matching["description"]
 
 

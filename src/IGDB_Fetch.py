@@ -111,6 +111,6 @@ def fetch_post_images(post: Post, token: str) -> Post:
 
 
 if __name__ == "__main__":
-    game = fetch_game("the witcher 3: wild hunt", get_igdb_token(client_id, client_secret))
+    game = fetch_game("starcraft", get_igdb_token(client_id, client_secret))
     print(game)
     
