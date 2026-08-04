@@ -1,5 +1,82 @@
 [
   {
+    "topic": "Top 5 Games with the Most Innovative Time Manipulation Mechanics",
+    "hook": "Tag someone who'd disagree with #1",
+    "games": [
+      "Braid",
+      "BioShock Infinite",
+      "Prince of Persia",
+      "The Legend of Zelda: A Link to the Past",
+      "Braid"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Item Management Systems",
+    "hook": "Tag someone who'd disagree with #1",
+    "games": [
+      "XCOM: Enemy Unknown",
+      "Stardew Valley",
+      "The Witcher 3: Wild Hunt",
+      "XCOM 2",
+      "Dark Souls"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Combat Systems",
+    "hook": "Only real gamers have played all 5",
+    "games": [
+      "Devil May Cry",
+      "Bayonetta",
+      "Devil May Cry 5",
+      "Ninja Gaiden Sigma 2",
+      "God of War"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Exploration Mechanics",
+    "hook": "Your childhood is on this list",
+    "games": [
+      "Ori and the Will of the Wisps",
+      "Minecraft",
+      "Satisfactory",
+      "Subnautica",
+      "No Man's Sky"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Puzzle Mechanics",
+    "hook": "Only real gamers have played all 5",
+    "games": [
+      "The Talos Principle",
+      "Braid",
+      "Tetris Effect",
+      "Fez",
+      "Portal"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Weapon Mechanics",
+    "hook": "Most people get #1 wrong",
+    "games": [
+      "Resident Evil 4",
+      "Doom",
+      "Borderlands",
+      "Half-Life",
+      "PUBG: Battlegrounds"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Use of Color Palettes",
+    "hook": "How many have you actually completed?",
+    "games": [
+      "Journey",
+      "Okami Sequel",
+      "Limbo",
+      "Gris",
+      "Inside"
+    ]
+  },
+  {
     "topic": "Top 5 Games with the Most Immersive Storytelling",
     "hook": "Most people get #1 wrong",
     "games": [
