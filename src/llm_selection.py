@@ -21,7 +21,7 @@ def prompt_model(prompt: str, system_prompt: str) -> dict:
         "system": system_prompt,
         "prompt": prompt,
         "stream": False,
-        "options": {"num_ctx": 4096, "temperature": 0.75}
+        "options": {"num_ctx": 16384, "temperature": 0.75}
     })
 
     response.raise_for_status()
