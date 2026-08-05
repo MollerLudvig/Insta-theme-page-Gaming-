@@ -1,68 +1,79 @@
 [
   {
-    "topic": "Top 5 Games with the Most Unique Power-Up Systems",
+    "topic": "Top 5 Games with the Most Innovative Time Manipulation Mechanics",
     "hook": "Tag someone who'd disagree with #1",
     "games": [
-      "Duke Nukem: Manhattan Project",
-      "Metroid Prime",
-      "Earthworm Jim",
-      "Jet Set Radio",
-      "Mega Man Battle Network"
+      "Braid",
+      "BioShock Infinite",
+      "Prince of Persia",
+      "The Legend of Zelda: A Link to the Past",
+      "Braid"
     ]
   },
   {
-    "topic": "Top 5 Games with the Most Unique Power-Up Systems",
+    "topic": "Top 5 Games with the Most Innovative Item Management Systems",
     "hook": "Tag someone who'd disagree with #1",
     "games": [
-      "Duke Nukem: Manhattan Project",
-      "Metroid Prime",
-      "Earthworm Jim",
-      "Jet Set Radio",
-      "Mega Man Battle Network"
+      "XCOM: Enemy Unknown",
+      "Stardew Valley",
+      "The Witcher 3: Wild Hunt",
+      "XCOM 2",
+      "Dark Souls"
     ]
   },
   {
-    "topic": "Top 5 Games with the Most Innovative NPC Interaction Systems",
+    "topic": "Top 5 Games with the Most Innovative Combat Systems",
+    "hook": "Only real gamers have played all 5",
+    "games": [
+      "Devil May Cry",
+      "Bayonetta",
+      "Devil May Cry 5",
+      "Ninja Gaiden Sigma 2",
+      "God of War"
+    ]
+  },
+  {
+    "topic": "Top 5 Games with the Most Innovative Exploration Mechanics",
     "hook": "Your childhood is on this list",
     "games": [
-      "Fallout: New Vegas",
-      "Chrono Trigger",
-      "The Walking Dead: Season One - Episode 1: A New Day",
-      "Mass Effect 2",
-      "Fallout 4" 
+      "Ori and the Will of the Wisps",
+      "Minecraft",
+      "Satisfactory",
+      "Subnautica",
+      "No Man's Sky"
     ]
   },
   {
-    "topic": "Top 5 Games with the Most Innovative Stealth Mechanics",
-    "hook": "Swipe to see if your #1 made the list",
+    "topic": "Top 5 Games with the Most Innovative Puzzle Mechanics",
+    "hook": "Only real gamers have played all 5",
     "games": [
-      "Hitman",
-      "Thief: The Dark Project",
-      "Tenchu: Stealth Assassins",
-      "P.T.",
-      "Metal Gear Solid"
+      "The Talos Principle",
+      "Braid",
+      "Tetris Effect",
+      "Fez",
+      "Portal"
     ]
   },
   {
-    "topic": "Top 5 Games with the Most Unique Gameplay Modes",
-    "hook": "Swipe to see if your #1 made the list",
+    "topic": "Top 5 Games with the Most Innovative Weapon Mechanics",
+    "hook": "Most people get #1 wrong",
     "games": [
-      "Oddworld: Abe's Oddysee",
-      "Katamari Damacy",
-      "Sixtar Gate: Startrail - Touhou Project Pack 01",
-      "Valkyria Chronicles",
-      "Minecraft"
+      "Resident Evil 4",
+      "Doom",
+      "Borderlands",
+      "Half-Life",
+      "PUBG: Battlegrounds"
     ]
   },
   {
-    "topic": "Top 5 Games with the Most Dynamic Weather Systems",
+    "topic": "Top 5 Games with the Most Innovative Use of Color Palettes",
     "hook": "How many have you actually completed?",
     "games": [
-      "NieR: Automata",
-      "Saints Row IV",
-      "Rainbow Six Siege",
-      "Horizon Zero Dawn",
-      "The Legend of Zelda: Breath of the Wild"
+      "Journey",
+      "Okami Sequel",
+      "Limbo",
+      "Gris",
+      "Inside"
     ]
   },
   {
